@@ -33,6 +33,13 @@ class DasafioTodolistApplicationTests {
 
 	@Test
 	void testeCriadoFalha() {
+		webTestClient
+			.post()
+			.uri("/todos")
+			.bodyValue(
+				new Todo("", "", false, 0))
+			.exchange()
+			.expectStatus().isBadRequest();
 	}
 
 }

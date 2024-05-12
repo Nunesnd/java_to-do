@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.todo_list.dasafiotodolist.entidades.Todo;
 import br.com.todo_list.dasafiotodolist.servicos.TodoServico;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/todos")
@@ -26,7 +27,7 @@ public class TodoController {
     }
 
     @PostMapping
-    List<Todo> criar(@RequestBody Todo todo){
+    List<Todo> criar(@RequestBody @Valid Todo todo){
         return todoServico.criar(todo);
     }
 
